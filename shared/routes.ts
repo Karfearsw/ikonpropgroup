@@ -1,13 +1,10 @@
-import { z } from "zod";
-import { insertInquirySchema } from "./schema";
+import { z } from 'zod';
+import { insertInquirySchema } from './schema';
 
 export const errorSchemas = {
   validation: z.object({
     message: z.string(),
     field: z.string().optional(),
-  }),
-  notFound: z.object({
-    message: z.string(),
   }),
   internal: z.object({
     message: z.string(),
@@ -17,11 +14,19 @@ export const errorSchemas = {
 export const api = {
   inquiries: {
     create: {
-      method: "POST" as const,
-      path: "/api/inquiries",
+      method: 'POST' as const,
+      path: '/api/inquiries',
       input: insertInquirySchema,
       responses: {
-        201: z.object({ id: z.number(), success: z.boolean() }),
+        201: z.object({
+          id: z.number(),
+          name: z.string(),
+          email: z.string(),
+          phone: z.string().nullable(),
+          message: z.string(),
+          serviceType: z.string(),
+          createdAt: z.date().nullable(),
+        }),
         400: errorSchemas.validation,
       },
     },
@@ -39,3 +44,7 @@ export function buildUrl(path: string, params?: Record<string, string | number>)
   }
   return url;
 }
+
+export type InquiryInput = z.infer<typeof api.inquiries.create.input>;
+export type InquiryResponse = z.infer<typeof api.inquiries.create.responses[201]>;
+export type ValidationError = z.infer<typeof errorSchemas.validation>;
