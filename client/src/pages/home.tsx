@@ -246,13 +246,13 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl md:text-7xl lg:text-[88px] font-extrabold text-white uppercase tracking-wide leading-tight text-shadow-hero mb-4">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white uppercase tracking-wide leading-tight text-shadow-hero mb-4">
               IKON PROPERTY GROUP
             </h1>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white uppercase tracking-wide leading-tight text-shadow-hero-sm mb-8">
-              Innovated
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white uppercase tracking-wide leading-tight text-shadow-hero-sm mb-8">
+              REAL ESTATE INNOVATED
             </h2>
-            <p className="text-lg md:text-xl lg:text-2xl text-white/90 mb-12 tracking-wide">
+            <p className="text-lg md:text-xl lg:text-2xl text-white font-bold mb-12 tracking-wide">
               NextGen Brokerage | Investment Consulting | Property Management
             </p>
             <Button 
