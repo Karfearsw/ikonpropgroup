@@ -80,11 +80,8 @@ export default function Home() {
 
   const mutation = useMutation({
     mutationFn: async (data: ContactFormData) => {
-      return apiRequest(api.inquiries.create.path, {
-        method: api.inquiries.create.method,
-        body: JSON.stringify(data),
-        headers: { "Content-Type": "application/json" },
-      });
+      const res = await apiRequest(api.inquiries.create.method, api.inquiries.create.path, data);
+      return res.json();
     },
     onSuccess: () => {
       toast({
