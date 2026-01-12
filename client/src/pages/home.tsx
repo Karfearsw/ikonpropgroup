@@ -252,7 +252,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white uppercase tracking-wide leading-tight text-shadow-hero-sm mb-8">
               REAL ESTATE INNOVATED
             </h2>
-            <p className="text-lg md:text-xl lg:text-2xl text-white font-bold mb-12 tracking-wide">
+            <p className="text-lg md:text-xl lg:text-2xl text-white font-bold mb-12 tracking-wide whitespace-nowrap">
               NextGen Brokerage | Investment Consulting | Property Management
             </p>
             <Button 
