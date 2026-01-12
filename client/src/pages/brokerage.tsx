@@ -153,9 +153,11 @@ export default function Brokerage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <Button className="bg-[#A0754D] hover:bg-[#8B6340] text-white rounded-full px-8" data-testid="cta-book-call">
-              Book A Call
-            </Button>
+            <a href="https://calendly.com/admin-ikonpropertygrp" target="_blank" rel="noopener noreferrer">
+              <Button className="bg-[#A0754D] hover:bg-[#8B6340] text-white rounded-full px-8" data-testid="cta-book-call">
+                Book A Call
+              </Button>
+            </a>
           </motion.div>
         </div>
       </section>
@@ -214,9 +216,11 @@ export default function Brokerage() {
             <p className="text-white/80 max-w-2xl mx-auto mb-8">
               Our innovative revenue sharing model allows you to build multiple income streams by recruiting and supporting other productive agents. Earn passive income from their success while growing your network.
             </p>
-            <Button className="bg-white text-[#8B6340] hover:bg-white/90 rounded-full px-8 font-semibold" data-testid="cta-join">
-              Join Our Team
-            </Button>
+            <a href="https://116pomqetnp.typeform.com/to/IBTSAwGs" target="_blank" rel="noopener noreferrer">
+              <Button className="bg-white text-[#8B6340] hover:bg-white/90 rounded-full px-8 font-semibold" data-testid="cta-join">
+                Join Our Team
+              </Button>
+            </a>
           </motion.div>
         </div>
       </section>

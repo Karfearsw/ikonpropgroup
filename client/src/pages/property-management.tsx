@@ -214,9 +214,56 @@ export default function PropertyManagement() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <Link href="/">
+            <Link href="/#contact">
               <Button className="bg-[#A0754D] hover:bg-[#8B6340] text-white rounded-full px-8" data-testid="cta-get-started">
                 Get Started
+              </Button>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Accreditations */}
+      <section className="py-16 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap justify-center items-center gap-12">
+            <div className="flex flex-col items-center text-center">
+              <div className="w-24 h-16 bg-[#D4BD9E]/20 rounded-lg flex items-center justify-center mb-2">
+                <span className="font-bold text-[#8B6340] text-lg">NARPM</span>
+              </div>
+              <span className="text-xs text-[#666666]">Member</span>
+            </div>
+            <div className="flex flex-col items-center text-center">
+              <div className="w-24 h-16 bg-[#D4BD9E]/20 rounded-lg flex items-center justify-center mb-2">
+                <span className="font-bold text-[#8B6340] text-sm">REALTOR®</span>
+              </div>
+              <span className="text-xs text-[#666666]">Member</span>
+            </div>
+            <div className="flex flex-col items-center text-center">
+              <div className="w-24 h-16 bg-[#D4BD9E]/20 rounded-lg flex items-center justify-center mb-2">
+                <span className="font-bold text-[#8B6340] text-xs leading-tight">EQUAL HOUSING<br/>OPPORTUNITY</span>
+              </div>
+              <span className="text-xs text-[#666666]">Supporter</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-[#F8F8F8]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-4">Ready to Get Started?</h2>
+            <p className="text-[#666666] mb-8">
+              Contact us today to learn how we can help manage your properties professionally.
+            </p>
+            <Link href="/#contact">
+              <Button className="bg-[#A0754D] hover:bg-[#8B6340] text-white rounded-full px-10" data-testid="cta-contact">
+                Contact Us
               </Button>
             </Link>
           </motion.div>

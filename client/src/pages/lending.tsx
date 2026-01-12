@@ -168,9 +168,11 @@ export default function Lending() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <Button className="bg-[#A0754D] hover:bg-[#8B6340] text-white rounded-full px-8" data-testid="cta-rental-learn">
-              Learn More
-            </Button>
+            <a href="https://116pomqetnp.typeform.com/to/FhSdsLMo" target="_blank" rel="noopener noreferrer">
+              <Button className="bg-[#A0754D] hover:bg-[#8B6340] text-white rounded-full px-8" data-testid="cta-rental-learn">
+                Learn More
+              </Button>
+            </a>
           </motion.div>
         </div>
       </section>
@@ -215,9 +217,11 @@ export default function Lending() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <Button className="bg-[#A0754D] hover:bg-[#8B6340] text-white rounded-full px-8" data-testid="cta-bridge-questions">
-              Questions?
-            </Button>
+            <a href="https://116pomqetnp.typeform.com/to/FhSdsLMo" target="_blank" rel="noopener noreferrer">
+              <Button className="bg-[#A0754D] hover:bg-[#8B6340] text-white rounded-full px-8" data-testid="cta-bridge-questions">
+                Questions?
+              </Button>
+            </a>
           </motion.div>
         </div>
       </section>
@@ -262,9 +266,11 @@ export default function Lending() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <Button className="bg-[#A0754D] hover:bg-[#8B6340] text-white rounded-full px-8" data-testid="cta-construction-questions">
-              Questions?
-            </Button>
+            <a href="https://116pomqetnp.typeform.com/to/FhSdsLMo" target="_blank" rel="noopener noreferrer">
+              <Button className="bg-[#A0754D] hover:bg-[#8B6340] text-white rounded-full px-8" data-testid="cta-construction-questions">
+                Questions?
+              </Button>
+            </a>
           </motion.div>
         </div>
       </section>
@@ -310,9 +316,11 @@ export default function Lending() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <Button className="bg-[#A0754D] hover:bg-[#8B6340] text-white rounded-full px-8" data-testid="cta-multifamily-questions">
-              Questions?
-            </Button>
+            <a href="https://116pomqetnp.typeform.com/to/FhSdsLMo" target="_blank" rel="noopener noreferrer">
+              <Button className="bg-[#A0754D] hover:bg-[#8B6340] text-white rounded-full px-8" data-testid="cta-multifamily-questions">
+                Questions?
+              </Button>
+            </a>
           </motion.div>
         </div>
       </section>

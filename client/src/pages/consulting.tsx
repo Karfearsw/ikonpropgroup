@@ -205,11 +205,32 @@ export default function Consulting() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <Link href="/">
+            <a href="https://116pomqetnp.typeform.com/to/pXzXk4fO?" target="_blank" rel="noopener noreferrer">
               <Button className="bg-[#A0754D] hover:bg-[#8B6340] text-white rounded-full px-8" data-testid="cta-consultation">
                 Schedule a Free Consultation
               </Button>
-            </Link>
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 bg-bronze-gradient">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Start Your Investment Journey?</h2>
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+              Let us help you build your real estate portfolio with our expert guidance and support.
+            </p>
+            <a href="https://116pomqetnp.typeform.com/to/pXzXk4fO?" target="_blank" rel="noopener noreferrer">
+              <Button className="bg-white text-[#8B6340] hover:bg-white/90 rounded-full px-10 py-6 text-lg font-semibold" data-testid="cta-get-started-main">
+                Get Started
+              </Button>
+            </a>
           </motion.div>
         </div>
       </section>
