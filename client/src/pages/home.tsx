@@ -298,7 +298,7 @@ export default function Home() {
                     <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center">
                       <service.icon className="h-16 w-16 text-[#8B6340] group-hover:scale-110 transition-transform" strokeWidth={1.5} />
                     </div>
-                    <h3 className="text-xl font-bold text-[#1A1A1A] mb-4">{service.title}</h3>
+                    <h3 className="text-xl font-bold text-[#1A1A1A] mb-4 whitespace-nowrap">{service.title}</h3>
                     <p className="text-[#333333] leading-relaxed">{service.description}</p>
                   </CardContent>
                 </Card>
