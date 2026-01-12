@@ -5,19 +5,18 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { z } from "zod";
 import { 
-  Building2, 
-  TrendingUp, 
-  Home as HomeIcon, 
-  Handshake,
   Phone, 
   Mail, 
   MapPin,
-  CheckCircle,
   Menu,
-  X
+  X,
+  TrendingUp,
+  Building2,
+  Home as HomeIcon,
+  Handshake
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
@@ -50,15 +49,15 @@ const contactSchema = z.object({
 type ContactFormData = z.infer<typeof contactSchema>;
 
 const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
+  initial: { opacity: 0, y: 30 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 }
+  transition: { duration: 0.6 }
 };
 
 const staggerContainer = {
   animate: {
     transition: {
-      staggerChildren: 0.1
+      staggerChildren: 0.15
     }
   }
 };
@@ -113,64 +112,90 @@ export default function Home() {
 
   const services = [
     {
-      icon: TrendingUp,
-      title: "Investment Consulting",
-      description: "Expert guidance to identify and invest in profitable real estate opportunities that maximize your returns.",
+      icon: Handshake,
+      title: "Brokerage Services",
+      description: "Full-service real estate brokerage for buying and selling properties. Our experienced agents guide you through every step of the transaction process.",
     },
     {
       icon: HomeIcon,
-      title: "Property Management",
-      description: "Comprehensive management services to protect your investment and ensure seamless operations.",
+      title: "Residential Property Management",
+      description: "Comprehensive management for residential properties. We handle tenant relations, maintenance, and maximize your property's value and returns.",
     },
     {
-      icon: Handshake,
-      title: "Brokerage Services",
-      description: "Full-service real estate brokerage for buying and selling properties with confidence.",
+      icon: Building2,
+      title: "Commercial Property Management",
+      description: "Expert management services for commercial real estate. From office buildings to retail spaces, we ensure smooth operations and profitability.",
     },
+    {
+      icon: TrendingUp,
+      title: "Investment Consulting",
+      description: "Strategic guidance to identify and invest in profitable real estate opportunities. Maximize your ROI with our expert market analysis.",
+    },
+  ];
+
+  const stats = [
+    { number: "500+", label: "Properties Managed" },
+    { number: "10+", label: "Years Experience" },
+    { number: "98%", label: "Client Satisfaction" },
+    { number: "$50M+", label: "Assets Under Management" },
   ];
 
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center gap-2">
-              <Building2 className="h-8 w-8 text-primary" />
-              <span className="font-bold text-xl tracking-tight">IKON PROPERTY GROUP</span>
+          <div className="flex justify-between items-center h-20">
+            {/* Logo */}
+            <div className="flex items-center gap-3">
+              <div className="flex">
+                <div className="w-6 h-5 bg-gradient-to-br from-[#C9A875] to-[#D4BD9E] rounded-tl-md"></div>
+                <div className="w-6 h-5 bg-gradient-to-br from-[#8B6340] to-[#704F2E] rounded-tr-md"></div>
+              </div>
+              <div className="flex flex-col">
+                <span className="font-black text-2xl tracking-tight text-[#1A1A1A]">IKON</span>
+                <span className="text-[9px] font-normal tracking-[0.15em] text-[#1A1A1A] uppercase -mt-1">Property Group</span>
+              </div>
             </div>
             
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-6">
+            <div className="hidden md:flex items-center gap-2">
               <button 
                 onClick={() => scrollToSection("services")}
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="text-[#8B6340] font-medium px-4 py-2 hover:text-[#A0754D] transition-colors relative group"
                 data-testid="nav-services"
               >
                 Services
+                <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-[#A0754D] scale-x-0 group-hover:scale-x-100 transition-transform"></span>
               </button>
               <button 
                 onClick={() => scrollToSection("about")}
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="text-[#8B6340] font-medium px-4 py-2 hover:text-[#A0754D] transition-colors relative group"
                 data-testid="nav-about"
               >
                 About
+                <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-[#A0754D] scale-x-0 group-hover:scale-x-100 transition-transform"></span>
               </button>
               <button 
                 onClick={() => scrollToSection("contact")}
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="text-[#8B6340] font-medium px-4 py-2 hover:text-[#A0754D] transition-colors relative group"
                 data-testid="nav-contact"
               >
                 Contact
+                <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-[#A0754D] scale-x-0 group-hover:scale-x-100 transition-transform"></span>
               </button>
-              <Button onClick={() => scrollToSection("contact")} data-testid="nav-cta">
-                Get Started
+              <Button 
+                onClick={() => scrollToSection("contact")} 
+                className="ml-4 bg-[#A0754D] hover:bg-[#8B6340] text-white rounded-full px-8 shadow-md"
+                data-testid="nav-cta"
+              >
+                Let's Connect
               </Button>
             </div>
 
             {/* Mobile Menu Button */}
             <button 
-              className="md:hidden p-2"
+              className="md:hidden p-2 text-[#8B6340]"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               data-testid="mobile-menu-toggle"
             >
@@ -180,28 +205,31 @@ export default function Home() {
 
           {/* Mobile Navigation */}
           {mobileMenuOpen && (
-            <div className="md:hidden py-4 border-t">
-              <div className="flex flex-col gap-4">
+            <div className="md:hidden py-4 border-t border-[#D4BD9E]">
+              <div className="flex flex-col gap-2">
                 <button 
                   onClick={() => scrollToSection("services")}
-                  className="text-left text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-left text-[#8B6340] font-medium py-2 hover:text-[#A0754D]"
                 >
                   Services
                 </button>
                 <button 
                   onClick={() => scrollToSection("about")}
-                  className="text-left text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-left text-[#8B6340] font-medium py-2 hover:text-[#A0754D]"
                 >
                   About
                 </button>
                 <button 
                   onClick={() => scrollToSection("contact")}
-                  className="text-left text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-left text-[#8B6340] font-medium py-2 hover:text-[#A0754D]"
                 >
                   Contact
                 </button>
-                <Button onClick={() => scrollToSection("contact")} className="w-full">
-                  Get Started
+                <Button 
+                  onClick={() => scrollToSection("contact")} 
+                  className="w-full mt-2 bg-[#A0754D] hover:bg-[#8B6340] text-white rounded-full"
+                >
+                  Let's Connect
                 </Button>
               </div>
             </div>
@@ -210,67 +238,53 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-16 min-h-[90vh] flex items-center">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `linear-gradient(to right, rgba(30, 41, 59, 0.95), rgba(30, 41, 59, 0.7)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')`,
-          }}
-        />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <motion.div 
-            className="max-w-3xl"
-            initial={{ opacity: 0, y: 30 }}
+      <section className="relative pt-20 min-h-screen flex items-center justify-center bg-bronze-gradient">
+        <div className="absolute inset-0 bg-black/15"></div>
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              Maximize Your ROI with Expert Real Estate Guidance
+            <h1 className="text-5xl md:text-7xl lg:text-[88px] font-extrabold text-white uppercase tracking-wide leading-tight text-shadow-hero mb-4">
+              Real Estate
             </h1>
-            <p className="text-xl text-gray-300 mb-8">
-              Seamless solutions tailored to your real estate investment goals. From property management to investment consulting, we're your trusted Michigan partner.
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white uppercase tracking-wide leading-tight text-shadow-hero-sm mb-8">
+              Investment & Management
+            </h2>
+            <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-2xl mx-auto">
+              Maximize your ROI with expert guidance and seamless solutions tailored to your real estate goals
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                size="lg" 
-                onClick={() => scrollToSection("contact")}
-                className="bg-accent text-accent-foreground border-accent-border"
-                data-testid="hero-cta"
-              >
-                Schedule a Consultation
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline"
-                onClick={() => scrollToSection("services")}
-                className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20"
-                data-testid="hero-services"
-              >
-                Explore Our Services
-              </Button>
-            </div>
+            <Button 
+              size="lg"
+              onClick={() => scrollToSection("contact")}
+              className="bg-[#A0754D] hover:bg-[#8B6340] text-white rounded-full px-10 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
+              data-testid="hero-cta"
+            >
+              Schedule a Consultation
+            </Button>
           </motion.div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-24 bg-muted/30">
+      <section id="services" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-16"
-            {...fadeInUp}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            whileInView="animate"
-            initial="initial"
+            transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Comprehensive real estate solutions designed to help you build and protect your wealth.
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1A1A1A] mb-4">Our Services</h2>
+            <p className="text-[#666666] text-lg max-w-2xl mx-auto">
+              Comprehensive real estate solutions designed to help you build and protect your wealth
             </p>
           </motion.div>
 
           <motion.div 
-            className="grid md:grid-cols-3 gap-8"
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
@@ -278,15 +292,14 @@ export default function Home() {
           >
             {services.map((service, index) => (
               <motion.div key={index} variants={fadeInUp}>
-                <Card className="h-full hover-elevate">
-                  <CardHeader>
-                    <div className="w-12 h-12 rounded-md bg-primary/10 flex items-center justify-center mb-4">
-                      <service.icon className="h-6 w-6 text-primary" />
+                <Card className="h-full bg-white border border-[#D4BD9E]/30 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-2 group relative overflow-visible">
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#A0754D] to-[#8B6340] opacity-0 group-hover:opacity-100 transition-opacity rounded-t-md"></div>
+                  <CardContent className="p-8 text-center">
+                    <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+                      <service.icon className="h-16 w-16 text-[#8B6340] group-hover:scale-110 transition-transform" strokeWidth={1.5} />
                     </div>
-                    <CardTitle className="text-xl">{service.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">{service.description}</p>
+                    <h3 className="text-xl font-bold text-[#1A1A1A] mb-4">{service.title}</h3>
+                    <p className="text-[#333333] leading-relaxed">{service.description}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -295,54 +308,66 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-24">
+      {/* Stats Section */}
+      <section className="py-20 bg-[#D4BD9E]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <motion.div 
+            className="grid grid-cols-2 lg:grid-cols-4 gap-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-5xl md:text-6xl lg:text-7xl font-black text-[#1A1A1A] tracking-tight">{stat.number}</div>
+                <div className="text-lg text-[#333333] mt-2">{stat.label}</div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-24 bg-[#F8F8F8]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#1A1A1A] mb-6">
                 Michigan's Trusted Real Estate Partner
               </h2>
-              <p className="text-muted-foreground text-lg mb-6">
+              <p className="text-[#333333] text-lg leading-relaxed mb-6">
                 Ikon Property Group (IPG) is a premier Michigan real estate brokerage specializing in investment consulting, property management, and brokerage services. Our team of experienced professionals is dedicated to helping you achieve your real estate goals.
               </p>
-              <ul className="space-y-4">
-                {[
-                  "Expert market analysis and investment guidance",
-                  "Full-service property management solutions",
-                  "Personalized approach to every client",
-                  "Proven track record of success",
-                ].map((item, index) => (
-                  <li key={index} className="flex items-center gap-3">
-                    <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+              <p className="text-[#333333] text-lg leading-relaxed mb-8">
+                With over a decade of experience in the Michigan market, we understand the unique opportunities and challenges of real estate investment in our region. Our personalized approach ensures that every client receives tailored strategies for success.
+              </p>
+              <Button 
+                onClick={() => scrollToSection("contact")}
+                className="bg-[#A0754D] hover:bg-[#8B6340] text-white rounded-full px-8"
+              >
+                Learn More About Us
+              </Button>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
               className="relative"
             >
-              <div className="aspect-[4/3] rounded-md overflow-hidden">
+              <div className="aspect-[4/3] rounded-md overflow-hidden shadow-xl">
                 <img
                   src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                   alt="Modern real estate property"
                   className="w-full h-full object-cover"
                 />
-              </div>
-              <div className="absolute -bottom-6 -left-6 bg-primary text-primary-foreground p-6 rounded-md shadow-lg">
-                <div className="text-3xl font-bold">10+</div>
-                <div className="text-sm">Years of Experience</div>
               </div>
             </motion.div>
           </div>
@@ -350,7 +375,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 bg-muted/30">
+      <section id="contact" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-16"
@@ -358,13 +383,13 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Get in Touch</h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1A1A1A] mb-4">Get in Touch</h2>
+            <p className="text-[#666666] text-lg max-w-2xl mx-auto">
               Ready to start your real estate journey? Reach out to us today for a free consultation.
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-16">
             {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -372,21 +397,19 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <Card>
-                <CardHeader>
-                  <CardTitle>Send Us a Message</CardTitle>
-                </CardHeader>
-                <CardContent>
+              <Card className="border border-[#D4BD9E]/30 shadow-lg">
+                <CardContent className="p-8">
+                  <h3 className="text-xl font-bold text-[#1A1A1A] mb-6">Send Us a Message</h3>
                   <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
                       <FormField
                         control={form.control}
                         name="name"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Full Name</FormLabel>
+                            <FormLabel className="text-[#333333]">Full Name</FormLabel>
                             <FormControl>
-                              <Input placeholder="John Doe" {...field} data-testid="input-name" />
+                              <Input placeholder="John Doe" {...field} data-testid="input-name" className="border-[#D4BD9E] focus:border-[#A0754D]" />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -399,9 +422,9 @@ export default function Home() {
                           name="email"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel>Email</FormLabel>
+                              <FormLabel className="text-[#333333]">Email</FormLabel>
                               <FormControl>
-                                <Input type="email" placeholder="john@example.com" {...field} data-testid="input-email" />
+                                <Input type="email" placeholder="john@example.com" {...field} data-testid="input-email" className="border-[#D4BD9E] focus:border-[#A0754D]" />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -413,9 +436,9 @@ export default function Home() {
                           name="phone"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel>Phone (Optional)</FormLabel>
+                              <FormLabel className="text-[#333333]">Phone (Optional)</FormLabel>
                               <FormControl>
-                                <Input type="tel" placeholder="(555) 123-4567" {...field} data-testid="input-phone" />
+                                <Input type="tel" placeholder="(555) 123-4567" {...field} data-testid="input-phone" className="border-[#D4BD9E] focus:border-[#A0754D]" />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -428,17 +451,18 @@ export default function Home() {
                         name="serviceType"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Service Interest</FormLabel>
+                            <FormLabel className="text-[#333333]">Service Interest</FormLabel>
                             <Select onValueChange={field.onChange} defaultValue={field.value}>
                               <FormControl>
-                                <SelectTrigger data-testid="select-service">
+                                <SelectTrigger data-testid="select-service" className="border-[#D4BD9E] focus:border-[#A0754D]">
                                   <SelectValue placeholder="Select a service" />
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>
-                                <SelectItem value="investment">Investment Consulting</SelectItem>
-                                <SelectItem value="management">Property Management</SelectItem>
                                 <SelectItem value="brokerage">Brokerage Services</SelectItem>
+                                <SelectItem value="residential">Residential Property Management</SelectItem>
+                                <SelectItem value="commercial">Commercial Property Management</SelectItem>
+                                <SelectItem value="investment">Investment Consulting</SelectItem>
                               </SelectContent>
                             </Select>
                             <FormMessage />
@@ -451,11 +475,11 @@ export default function Home() {
                         name="message"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Message</FormLabel>
+                            <FormLabel className="text-[#333333]">Message</FormLabel>
                             <FormControl>
                               <Textarea 
                                 placeholder="Tell us about your real estate goals..." 
-                                className="min-h-[120px]"
+                                className="min-h-[120px] border-[#D4BD9E] focus:border-[#A0754D]"
                                 {...field} 
                                 data-testid="input-message"
                               />
@@ -467,7 +491,7 @@ export default function Home() {
 
                       <Button 
                         type="submit" 
-                        className="w-full" 
+                        className="w-full bg-[#A0754D] hover:bg-[#8B6340] text-white rounded-full py-6 text-lg font-semibold" 
                         disabled={mutation.isPending}
                         data-testid="button-submit"
                       >
@@ -488,49 +512,49 @@ export default function Home() {
               className="space-y-8"
             >
               <div>
-                <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
-                <div className="space-y-4">
+                <h3 className="text-xl font-bold text-[#1A1A1A] mb-6">Contact Information</h3>
+                <div className="space-y-6">
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-md bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <Phone className="h-5 w-5 text-primary" />
+                    <div className="w-12 h-12 rounded-full bg-[#D4BD9E]/30 flex items-center justify-center flex-shrink-0">
+                      <Phone className="h-5 w-5 text-[#8B6340]" />
                     </div>
                     <div>
-                      <div className="font-medium">Phone</div>
-                      <div className="text-muted-foreground">(313) 555-0123</div>
+                      <div className="font-semibold text-[#1A1A1A]">Phone</div>
+                      <div className="text-[#666666]">(313) 555-0123</div>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-md bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <Mail className="h-5 w-5 text-primary" />
+                    <div className="w-12 h-12 rounded-full bg-[#D4BD9E]/30 flex items-center justify-center flex-shrink-0">
+                      <Mail className="h-5 w-5 text-[#8B6340]" />
                     </div>
                     <div>
-                      <div className="font-medium">Email</div>
-                      <div className="text-muted-foreground">info@ikonpropertygrp.com</div>
+                      <div className="font-semibold text-[#1A1A1A]">Email</div>
+                      <div className="text-[#666666]">info@ikonpropertygrp.com</div>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-md bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <MapPin className="h-5 w-5 text-primary" />
+                    <div className="w-12 h-12 rounded-full bg-[#D4BD9E]/30 flex items-center justify-center flex-shrink-0">
+                      <MapPin className="h-5 w-5 text-[#8B6340]" />
                     </div>
                     <div>
-                      <div className="font-medium">Office</div>
-                      <div className="text-muted-foreground">Detroit, Michigan</div>
+                      <div className="font-semibold text-[#1A1A1A]">Office</div>
+                      <div className="text-[#666666]">Detroit, Michigan</div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <Card className="bg-primary text-primary-foreground border-primary-border">
-                <CardContent className="p-6">
-                  <h4 className="text-lg font-semibold mb-2">Free Consultation</h4>
-                  <p className="opacity-90 mb-4">
-                    Schedule a no-obligation consultation to discuss your real estate investment goals.
+              <Card className="bg-bronze-gradient text-white border-none shadow-lg">
+                <CardContent className="p-8">
+                  <h4 className="text-xl font-bold mb-3">Free Consultation</h4>
+                  <p className="opacity-90 mb-6 leading-relaxed">
+                    Schedule a no-obligation consultation to discuss your real estate investment goals and discover how we can help you succeed.
                   </p>
                   <Button 
                     variant="secondary"
-                    className="bg-white text-primary hover:bg-white/90"
+                    className="bg-white text-[#8B6340] hover:bg-white/90 rounded-full font-semibold"
                     onClick={() => scrollToSection("contact")}
                   >
                     Book Now
@@ -543,12 +567,18 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-foreground text-background py-12">
+      <footer className="bg-[#1A1A1A] text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex items-center gap-2">
-              <Building2 className="h-6 w-6" />
-              <span className="font-bold text-lg">IKON PROPERTY GROUP</span>
+            <div className="flex items-center gap-3">
+              <div className="flex">
+                <div className="w-5 h-4 bg-gradient-to-br from-[#C9A875] to-[#D4BD9E] rounded-tl-sm"></div>
+                <div className="w-5 h-4 bg-gradient-to-br from-[#8B6340] to-[#704F2E] rounded-tr-sm"></div>
+              </div>
+              <div className="flex flex-col">
+                <span className="font-black text-lg tracking-tight">IKON</span>
+                <span className="text-[8px] font-normal tracking-[0.15em] uppercase -mt-0.5 opacity-80">Property Group</span>
+              </div>
             </div>
             <div className="text-sm opacity-70">
               &copy; {new Date().getFullYear()} Ikon Property Group. All rights reserved.

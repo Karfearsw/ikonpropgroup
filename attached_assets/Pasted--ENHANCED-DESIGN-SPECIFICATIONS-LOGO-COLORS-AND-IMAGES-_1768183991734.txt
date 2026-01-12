@@ -1,0 +1,473 @@
+# **ENHANCED DESIGN SPECIFICATIONS: LOGO, COLORS, AND IMAGES**
+
+Based on detailed analysis of ikonpropertygrp.com, here's the complete style guide for your AI developer:[1][2]
+
+***
+
+## **LOGO SPECIFICATIONS**
+
+### **Primary Logo Design**
+The Ikon Property Group logo consists of two main elements:[1]
+
+**Icon Element (Left Side)**:
+- **Design**: Stylized house/roof with two sections
+- **Left section**: Tan/beige gradient (#C9A875 to #D4BD9E)
+- **Right section**: Darker bronze/copper (#8B6340 to #704F2E)
+- **Small house window detail**: Dark gray/black square window in the lighter section
+- **Style**: Geometric, modern, minimal
+- **Dimensions**: Approximately 45px width × 40px height
+
+**Text Element (Right Side)**:
+- **"IKON"**: 
+  - Font: Bold geometric sans-serif (similar to Futura Extra Bold)
+  - Size: ~32-36px
+  - Color: Black (#1A1A1A)
+  - Letter spacing: Tight (-0.02em)
+  - Weight: 900
+
+- **"PROPERTY GROUP"**:
+  - Font: Light sans-serif (Futura or similar)
+  - Size: ~8-9px
+  - Color: Black (#1A1A1A)
+  - Letter spacing: Wide (~0.15em)
+  - Weight: 400
+  - Position: Below "IKON", left-aligned
+
+**Overall Logo Dimensions**:
+- Width: ~180-200px
+- Height: ~60-70px
+- File format needed: PNG with transparency or SVG
+
+***
+
+## **PRECISE COLOR PALETTE WITH HEX CODES**
+
+### **Primary Brand Colors**:
+
+**Bronze/Copper (Hero Background)**:
+- Primary: `#A0754D`
+- Dark variant: `#8B6340`
+- Darkest: `#704F2E`
+- Usage: Hero section, CTA buttons, accents
+
+**Tan/Beige (Section Backgrounds)**:
+- Light tan: `#D4BD9E`
+- Medium tan: `#C9A875`
+- Usage: Alternating section backgrounds, stats section
+
+**Neutral Colors**:
+- Pure White: `#FFFFFF` (card backgrounds, header)
+- Off-White/Cream: `#F5F0E8` (card backgrounds)
+- Black: `#1A1A1A` (primary text)
+- Dark Gray: `#333333` (secondary text)
+- Medium Gray: `#666666` (tertiary text)
+- Light Gray: `#F8F8F8` (subtle backgrounds)
+
+**Accent Colors**:
+- Bronze hover state: `#8B6340`
+- Link color: `#A0754D`
+- Border color: `#D4BD9E`
+
+### **Color Usage Map**:
+
+```css
+/* CSS Variables for Implementation */
+:root {
+  --color-bronze-primary: #A0754D;
+  --color-bronze-dark: #8B6340;
+  --color-bronze-darkest: #704F2E;
+  
+  --color-tan-light: #D4BD9E;
+  --color-tan-medium: #C9A875;
+  
+  --color-white: #FFFFFF;
+  --color-cream: #F5F0E8;
+  --color-black: #1A1A1A;
+  --color-gray-dark: #333333;
+  --color-gray-medium: #666666;
+  --color-gray-light: #F8F8F8;
+  
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-shadow-hover: rgba(160, 117, 77, 0.3);
+}
+```
+
+***
+
+## **SERVICE CARD ICONS - DETAILED SPECIFICATIONS**
+
+### **Icon Style Guidelines**:
+- **Style**: Line art with solid fill, modern geometric design
+- **Color**: `#8B6340` (bronze/copper)
+- **Size**: 80-100px width/height
+- **Line weight**: Medium (3-4px)
+- **Format**: SVG preferred for scalability
+
+### **Individual Icon Descriptions**:[2]
+
+**1. Brokerage Services Icon**:
+- **Design**: Hands cradling a house
+- **Elements**: 
+  - Two stylized hands (open palm gesture) at bottom
+  - Small house/roof sitting on top of hands
+  - Small window detail in house
+- **Symbolism**: Care, protection, support
+- **Approximate SVG path**: Curved hands with geometric house shape
+
+**2. Residential Property Management Icon**:
+- **Design**: Traditional house with garage
+- **Elements**:
+  - Simple house shape with pitched roof
+  - Two garage door panels at bottom
+  - Small window at top
+  - Chimney on right side
+- **Symbolism**: Residential property, home management
+- **Style**: Front-facing elevation view
+
+**3. Commercial Property Management Icon**:
+- **Design**: Multi-story building/skyscraper
+- **Elements**:
+  - Tall rectangular building shape
+  - Stylized "3D" perspective showing two faces
+  - Small square window at bottom (entrance)
+  - Angular roofline creating dimension
+- **Symbolism**: Commercial real estate, office buildings
+- **Style**: Isometric/3D perspective
+
+**4. Investment Consulting Icon**:
+- **Design**: Growth chart/analytics icon
+- **Elements**:
+  - Upward trending line graph
+  - Bar chart elements
+  - Arrow pointing upward
+- **Symbolism**: Growth, investment returns, analytics
+- **Style**: Business/finance iconography
+
+### **Icon Implementation Code**:
+
+```css
+.service-icon {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 20px;
+  display: block;
+  fill: #8B6340;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1);
+}
+```
+
+***
+
+## **TYPOGRAPHY - EXACT SPECIFICATIONS**
+
+### **Font Stack**:
+
+**Primary (Headings)**:
+```css
+font-family: 'Futura', 'Montserrat', 'Trebuchet MS', sans-serif;
+```
+
+**Secondary (Body)**:
+```css
+font-family: 'Helvetica Neue', 'Arial', sans-serif;
+```
+
+### **Type Scale with Exact Sizes**:
+
+**Logo Text**:
+```css
+.logo-main {
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #1A1A1A;
+}
+
+.logo-tagline {
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: #1A1A1A;
+  text-transform: uppercase;
+}
+```
+
+**Hero Section**:
+```css
+.hero-title {
+  font-size: 88px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #FFFFFF;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #FFFFFF;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.hero-tagline {
+  font-size: 26px;
+  font-weight: 400;
+  color: #FFFFFF;
+  letter-spacing: 0.01em;
+}
+```
+
+**Service Card Text**:
+```css
+.service-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1A1A1A;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.service-description {
+  font-size: 17px;
+  font-weight: 400;
+  color: #333333;
+  line-height: 1.7;
+}
+```
+
+**Stats Section**:[2]
+```css
+.stat-number {
+  font-size: 80px;
+  font-weight: 900;
+  color: #1A1A1A;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 19px;
+  font-weight: 400;
+  color: #333333;
+  margin-top: 10px;
+}
+```
+
+***
+
+## **BUTTON & CTA STYLING**
+
+### **"Lets Connect" Button**:
+```css
+.cta-button {
+  background: #A0754D;
+  color: #FFFFFF;
+  padding: 14px 32px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(160, 117, 77, 0.2);
+}
+
+.cta-button:hover {
+  background: #8B6340;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(160, 117, 77, 0.35);
+}
+
+.cta-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(160, 117, 77, 0.2);
+}
+```
+
+***
+
+## **SERVICE CARD COMPLETE STYLING**
+
+```css
+.service-card {
+  background: #FFFFFF;
+  border-radius: 10px;
+  padding: 40px 32px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(212, 189, 158, 0.3);
+  position: relative;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  border-color: #A0754D;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #A0754D 0%, #8B6340 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+```
+
+***
+
+## **HERO SECTION GRADIENT**
+
+```css
+.hero {
+  background: linear-gradient(135deg, #A0754D 0%, #8B6340 50%, #704F2E 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 20px;
+  position: relative;
+}
+
+/* Optional: Add subtle overlay for text contrast */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+```
+
+***
+
+## **CHAT WIDGET STYLING**
+
+```css
+.chat-widget {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  z-index: 1000;
+}
+
+.chat-button {
+  background: #A0754D;
+  color: #FFFFFF;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(160, 117, 77, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.chat-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 24px rgba(160, 117, 77, 0.5);
+}
+
+.chat-icon {
+  width: 32px;
+  height: 32px;
+  fill: #FFFFFF;
+}
+```
+
+***
+
+## **NAVIGATION LINK STYLING**
+
+```css
+.nav-link {
+  color: #8B6340;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 10px 16px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 16px;
+  right: 16px;
+  height: 2px;
+  background: #A0754D;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #A0754D;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-link.active {
+  color: #A0754D;
+  font-weight: 600;
+}
+```
+
+***
+
+## **ASSETS EXPORT CHECKLIST**
+
+### **Required Image Files**:
+1. ✅ `ikon-logo-full.svg` or `ikon-logo-full.png` (transparent background)
+2. ✅ `icon-brokerage.svg` (hands + house icon)
+3. ✅ `icon-residential.svg` (house with garage icon)
+4. ✅ `icon-commercial.svg` (building icon)
+5. ✅ `icon-investment.svg` (growth chart icon)
+6. ✅ `favicon.ico` (16×16, 32×32, 64×64 sizes)
+
+### **Font Files** (if self-hosting):
+- Futura Bold, Extra Bold
+- Helvetica Neue Regular, Medium
+
+***
+
+This enhanced specification gives your AI developer pixel-perfect color codes, exact sizing, and visual descriptions of all logos and icons to replicate the site precisely.[1][2]
+
+[1](https://www.ikonpropertygrp.com/)
+[2](https://www.ikonpropertygrp.com/)
