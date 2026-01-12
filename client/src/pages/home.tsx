@@ -250,7 +250,7 @@ export default function Home() {
               Real Estate
             </h1>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white uppercase tracking-wide leading-tight text-shadow-hero-sm mb-8">
-              Investment & Management
+              Innovated
             </h2>
             <p className="text-lg md:text-xl lg:text-2xl text-white/90 mb-12 tracking-wide">
               NextGen Brokerage | Investment Consulting | Property Management
