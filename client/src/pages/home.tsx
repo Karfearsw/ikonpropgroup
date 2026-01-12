@@ -247,7 +247,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-5xl md:text-7xl lg:text-[88px] font-extrabold text-white uppercase tracking-wide leading-tight text-shadow-hero mb-4">
-              Real Estate
+              IKON PROPERTY GROUP
             </h1>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white uppercase tracking-wide leading-tight text-shadow-hero-sm mb-8">
               Innovated
