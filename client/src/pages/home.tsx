@@ -18,6 +18,7 @@ import {
   Banknote,
   ChevronDown
 } from "lucide-react";
+import logoImage from "@assets/targeted_element_1768189205861.png";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -155,16 +156,14 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
-            <div className="flex items-center gap-3">
-              <div className="flex">
-                <div className="w-6 h-5 bg-gradient-to-br from-[#C9A875] to-[#D4BD9E] rounded-tl-md"></div>
-                <div className="w-6 h-5 bg-gradient-to-br from-[#8B6340] to-[#704F2E] rounded-tr-md"></div>
-              </div>
-              <div className="flex flex-col">
-                <span className="font-black text-2xl tracking-tight text-[#1A1A1A]">IKON</span>
-                <span className="text-[9px] font-normal tracking-[0.15em] text-[#1A1A1A] uppercase -mt-1">Property Group</span>
-              </div>
-            </div>
+            <Link href="/">
+              <img 
+                src={logoImage} 
+                alt="IKON Property Group" 
+                className="h-12 cursor-pointer"
+                data-testid="nav-logo"
+              />
+            </Link>
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-2">
