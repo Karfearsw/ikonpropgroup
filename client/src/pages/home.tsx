@@ -15,7 +15,8 @@ import {
   Building2,
   Home as HomeIcon,
   Handshake,
-  Banknote
+  Banknote,
+  ChevronDown
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -66,6 +67,7 @@ const staggerContainer = {
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const { toast } = useToast();
 
   const form = useForm<ContactFormData>({
@@ -166,14 +168,49 @@ export default function Home() {
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-2">
-              <button 
-                onClick={() => scrollToSection("services")}
-                className="text-[#8B6340] font-medium px-4 py-2 hover:text-[#A0754D] transition-colors relative group"
-                data-testid="nav-services"
+              <div 
+                className="relative"
+                onMouseEnter={() => setServicesDropdownOpen(true)}
+                onMouseLeave={() => setServicesDropdownOpen(false)}
               >
-                Services
-                <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-[#A0754D] scale-x-0 group-hover:scale-x-100 transition-transform"></span>
-              </button>
+                <button 
+                  className="text-[#8B6340] font-medium px-4 py-2 hover:text-[#A0754D] transition-colors relative group flex items-center gap-1"
+                  data-testid="nav-services"
+                >
+                  Services
+                  <ChevronDown className={`h-4 w-4 transition-transform ${servicesDropdownOpen ? 'rotate-180' : ''}`} />
+                  <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-[#A0754D] scale-x-0 group-hover:scale-x-100 transition-transform"></span>
+                </button>
+                <div 
+                  className={`absolute top-full left-0 mt-1 w-64 bg-white rounded-lg shadow-xl border border-[#D4BD9E]/30 py-2 transition-all ${servicesDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}`}
+                  style={{ zIndex: 100 }}
+                >
+                  <Link href="/consulting">
+                    <div className="px-4 py-3 hover:bg-[#F8F8F8] cursor-pointer flex items-center gap-3" data-testid="dropdown-consulting">
+                      <TrendingUp className="h-5 w-5 text-[#8B6340]" />
+                      <span className="text-[#1A1A1A] font-medium">Investment Consulting</span>
+                    </div>
+                  </Link>
+                  <Link href="/propertymanagement">
+                    <div className="px-4 py-3 hover:bg-[#F8F8F8] cursor-pointer flex items-center gap-3" data-testid="dropdown-property">
+                      <HomeIcon className="h-5 w-5 text-[#8B6340]" />
+                      <span className="text-[#1A1A1A] font-medium">Property Management</span>
+                    </div>
+                  </Link>
+                  <Link href="/brokerageservices">
+                    <div className="px-4 py-3 hover:bg-[#F8F8F8] cursor-pointer flex items-center gap-3" data-testid="dropdown-brokerage">
+                      <Handshake className="h-5 w-5 text-[#8B6340]" />
+                      <span className="text-[#1A1A1A] font-medium">Brokerage Services</span>
+                    </div>
+                  </Link>
+                  <Link href="/lending">
+                    <div className="px-4 py-3 hover:bg-[#F8F8F8] cursor-pointer flex items-center gap-3" data-testid="dropdown-lending">
+                      <Banknote className="h-5 w-5 text-[#8B6340]" />
+                      <span className="text-[#1A1A1A] font-medium">Lending</span>
+                    </div>
+                  </Link>
+                </div>
+              </div>
               <button 
                 onClick={() => scrollToSection("investors")}
                 className="text-[#8B6340] font-medium px-4 py-2 hover:text-[#A0754D] transition-colors relative group"
@@ -221,12 +258,43 @@ export default function Home() {
           {mobileMenuOpen && (
             <div className="md:hidden py-4 border-t border-[#D4BD9E]">
               <div className="flex flex-col gap-2">
-                <button 
-                  onClick={() => scrollToSection("services")}
-                  className="text-left text-[#8B6340] font-medium py-2 hover:text-[#A0754D]"
-                >
-                  Services
-                </button>
+                <div>
+                  <button 
+                    onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
+                    className="w-full text-left text-[#8B6340] font-medium py-2 hover:text-[#A0754D] flex items-center justify-between"
+                  >
+                    Services
+                    <ChevronDown className={`h-4 w-4 transition-transform ${servicesDropdownOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  {servicesDropdownOpen && (
+                    <div className="pl-4 flex flex-col gap-1 mt-1 mb-2">
+                      <Link href="/consulting" onClick={() => setMobileMenuOpen(false)}>
+                        <div className="flex items-center gap-2 py-2 text-[#1A1A1A]">
+                          <TrendingUp className="h-4 w-4 text-[#8B6340]" />
+                          <span>Investment Consulting</span>
+                        </div>
+                      </Link>
+                      <Link href="/propertymanagement" onClick={() => setMobileMenuOpen(false)}>
+                        <div className="flex items-center gap-2 py-2 text-[#1A1A1A]">
+                          <HomeIcon className="h-4 w-4 text-[#8B6340]" />
+                          <span>Property Management</span>
+                        </div>
+                      </Link>
+                      <Link href="/brokerageservices" onClick={() => setMobileMenuOpen(false)}>
+                        <div className="flex items-center gap-2 py-2 text-[#1A1A1A]">
+                          <Handshake className="h-4 w-4 text-[#8B6340]" />
+                          <span>Brokerage Services</span>
+                        </div>
+                      </Link>
+                      <Link href="/lending" onClick={() => setMobileMenuOpen(false)}>
+                        <div className="flex items-center gap-2 py-2 text-[#1A1A1A]">
+                          <Banknote className="h-4 w-4 text-[#8B6340]" />
+                          <span>Lending</span>
+                        </div>
+                      </Link>
+                    </div>
+                  )}
+                </div>
                 <button 
                   onClick={() => scrollToSection("investors")}
                   className="text-left text-[#8B6340] font-medium py-2 hover:text-[#A0754D]"
