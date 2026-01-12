@@ -169,6 +169,14 @@ export default function Home() {
                 <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-[#A0754D] scale-x-0 group-hover:scale-x-100 transition-transform"></span>
               </button>
               <button 
+                onClick={() => scrollToSection("investors")}
+                className="text-[#8B6340] font-medium px-4 py-2 hover:text-[#A0754D] transition-colors relative group"
+                data-testid="nav-investors"
+              >
+                Investors
+                <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-[#A0754D] scale-x-0 group-hover:scale-x-100 transition-transform"></span>
+              </button>
+              <button 
                 onClick={() => scrollToSection("about")}
                 className="text-[#8B6340] font-medium px-4 py-2 hover:text-[#A0754D] transition-colors relative group"
                 data-testid="nav-about"
@@ -212,6 +220,12 @@ export default function Home() {
                   className="text-left text-[#8B6340] font-medium py-2 hover:text-[#A0754D]"
                 >
                   Services
+                </button>
+                <button 
+                  onClick={() => scrollToSection("investors")}
+                  className="text-left text-[#8B6340] font-medium py-2 hover:text-[#A0754D]"
+                >
+                  Investors
                 </button>
                 <button 
                   onClick={() => scrollToSection("about")}
@@ -324,6 +338,173 @@ export default function Home() {
                 <div className="text-lg text-[#333333] mt-2">{stat.label}</div>
               </div>
             ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* First Time Investors Section */}
+      <section id="investors" className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1A1A1A] mb-2">How We Help</h2>
+            <h3 className="text-2xl md:text-3xl font-bold text-[#A0754D] mb-6">First Time Investors</h3>
+            <p className="text-[#666666] text-lg max-w-3xl mx-auto">
+              Real estate investing can be a great way to build wealth and diversify your portfolio. If you already own a primary residence, you have a unique advantage over others who are just starting out.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <Card className="h-full border border-[#D4BD9E]/30 shadow-md">
+                <CardContent className="p-8">
+                  <div className="w-14 h-14 rounded-full bg-[#D4BD9E]/30 flex items-center justify-center mb-6">
+                    <MapPin className="h-7 w-7 text-[#8B6340]" />
+                  </div>
+                  <h4 className="text-xl font-bold text-[#1A1A1A] mb-4">Identifying the Right Properties</h4>
+                  <p className="text-[#333333] leading-relaxed mb-4">
+                    As a first-time investor, it's best to start with properties that are familiar to you, such as single-family homes, condos, and residential multi-family dwellings.
+                  </p>
+                  <ul className="space-y-2 text-[#333333]">
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#A0754D] font-bold">•</span>
+                      <span><strong>Location:</strong> Properties in desirable locations close to amenities</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#A0754D] font-bold">•</span>
+                      <span><strong>Condition:</strong> Well-maintained properties in good condition</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#A0754D] font-bold">•</span>
+                      <span><strong>Market Demand:</strong> Areas with high rental demand and low vacancy</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <Card className="h-full border border-[#D4BD9E]/30 shadow-md">
+                <CardContent className="p-8">
+                  <div className="w-14 h-14 rounded-full bg-[#D4BD9E]/30 flex items-center justify-center mb-6">
+                    <TrendingUp className="h-7 w-7 text-[#8B6340]" />
+                  </div>
+                  <h4 className="text-xl font-bold text-[#1A1A1A] mb-4">Evaluating Risks and Returns</h4>
+                  <p className="text-[#333333] leading-relaxed mb-4">
+                    Before making any investment, it's important to evaluate the risks and potential returns. Calculate the cap rate to estimate potential ROI.
+                  </p>
+                  <ul className="space-y-2 text-[#333333]">
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#A0754D] font-bold">•</span>
+                      <span><strong>Rental Income:</strong> Ensure income covers costs and generates profit</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#A0754D] font-bold">•</span>
+                      <span><strong>Cash Flow:</strong> Look for positive cash flow properties</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#A0754D] font-bold">•</span>
+                      <span><strong>Appreciation:</strong> Research historical appreciation rates</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <Card className="h-full border border-[#D4BD9E]/30 shadow-md">
+                <CardContent className="p-8">
+                  <div className="w-14 h-14 rounded-full bg-[#D4BD9E]/30 flex items-center justify-center mb-6">
+                    <Building2 className="h-7 w-7 text-[#8B6340]" />
+                  </div>
+                  <h4 className="text-xl font-bold text-[#1A1A1A] mb-4">Traditional Bank Financing</h4>
+                  <p className="text-[#333333] leading-relaxed mb-4">
+                    Traditional bank loans offer lower interest rates and longer repayment terms. Key qualifications include:
+                  </p>
+                  <ul className="space-y-2 text-[#333333]">
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#A0754D] font-bold">•</span>
+                      <span><strong>20% Down Payment:</strong> Minimum, with 25% getting better rates</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#A0754D] font-bold">•</span>
+                      <span><strong>620+ FICO Score:</strong> 740+ for best rates and terms</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#A0754D] font-bold">•</span>
+                      <span><strong>6 Month Reserves:</strong> Post-closing cushion for payments</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <Card className="h-full border border-[#D4BD9E]/30 shadow-md">
+                <CardContent className="p-8">
+                  <div className="w-14 h-14 rounded-full bg-[#D4BD9E]/30 flex items-center justify-center mb-6">
+                    <TrendingUp className="h-7 w-7 text-[#8B6340]" />
+                  </div>
+                  <h4 className="text-xl font-bold text-[#1A1A1A] mb-4">Calculating Your Rate of Return</h4>
+                  <p className="text-[#333333] leading-relaxed mb-4">
+                    Individual Rate of Return (IRR) measures the profitability of an investment over time, helping you determine if the investment justifies the risk.
+                  </p>
+                  <ul className="space-y-2 text-[#333333]">
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#A0754D] font-bold">•</span>
+                      <span>Total investment including purchase and renovation costs</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#A0754D] font-bold">•</span>
+                      <span>Estimated cash flows from rental income over time</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#A0754D] font-bold">•</span>
+                      <span>Projected appreciation and exit strategy timing</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+
+          <motion.div 
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <Button 
+              onClick={() => scrollToSection("contact")}
+              className="bg-[#A0754D] hover:bg-[#8B6340] text-white rounded-full px-8"
+              data-testid="investors-cta"
+            >
+              Schedule a Free Consultation
+            </Button>
           </motion.div>
         </div>
       </section>
@@ -530,7 +711,7 @@ export default function Home() {
                     </div>
                     <div>
                       <div className="font-semibold text-[#1A1A1A]">Email</div>
-                      <div className="text-[#666666]">info@ikonpropertygrp.com</div>
+                      <div className="text-[#666666]">admin@ikonpropertygrp.com</div>
                     </div>
                   </div>
                   
@@ -540,7 +721,8 @@ export default function Home() {
                     </div>
                     <div>
                       <div className="font-semibold text-[#1A1A1A]">Office</div>
-                      <div className="text-[#666666]">Detroit, Michigan</div>
+                      <div className="text-[#666666]">607 Shelby St, Ste 700-238</div>
+                      <div className="text-[#666666]">Detroit, Michigan 48226</div>
                     </div>
                   </div>
                 </div>
@@ -569,7 +751,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-[#1A1A1A] text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="grid md:grid-cols-3 gap-8 items-start">
             <div className="flex items-center gap-3">
               <div className="flex">
                 <div className="w-5 h-4 bg-gradient-to-br from-[#C9A875] to-[#D4BD9E] rounded-tl-sm"></div>
@@ -580,7 +762,12 @@ export default function Home() {
                 <span className="text-[8px] font-normal tracking-[0.15em] uppercase -mt-0.5 opacity-80">Property Group</span>
               </div>
             </div>
-            <div className="text-sm opacity-70">
+            <div className="text-sm opacity-70 text-center">
+              <div>607 Shelby St, Ste 700-238</div>
+              <div>Detroit, Michigan 48226</div>
+              <div className="mt-2">admin@ikonpropertygrp.com</div>
+            </div>
+            <div className="text-sm opacity-70 text-right">
               &copy; {new Date().getFullYear()} Ikon Property Group. All rights reserved.
             </div>
           </div>
