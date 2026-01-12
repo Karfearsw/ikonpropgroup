@@ -252,8 +252,8 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white uppercase tracking-wide leading-tight text-shadow-hero-sm mb-8">
               Investment & Management
             </h2>
-            <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-2xl mx-auto">
-              Maximize your ROI with expert guidance and seamless solutions tailored to your real estate goals
+            <p className="text-lg md:text-xl lg:text-2xl text-white/90 mb-12 tracking-wide">
+              NextGen Brokerage | Investment Consulting | Property Management
             </p>
             <Button 
               size="lg"
