@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { z } from "zod";
+import { Link } from "wouter";
 import { 
   Phone, 
   Mail, 
@@ -13,7 +14,8 @@ import {
   TrendingUp,
   Building2,
   Home as HomeIcon,
-  Handshake
+  Handshake,
+  Banknote
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -112,24 +114,28 @@ export default function Home() {
 
   const services = [
     {
-      icon: Handshake,
-      title: "Brokerage Services",
-      description: "Full-service real estate brokerage for buying and selling properties. Our experienced agents guide you through every step of the transaction process.",
-    },
-    {
-      icon: HomeIcon,
-      title: "Residential Property Management",
-      description: "Comprehensive management for residential properties. We handle tenant relations, maintenance, and maximize your property's value and returns.",
-    },
-    {
-      icon: Building2,
-      title: "Commercial Property Management",
-      description: "Expert management services for commercial real estate. From office buildings to retail spaces, we ensure smooth operations and profitability.",
-    },
-    {
       icon: TrendingUp,
       title: "Investment Consulting",
       description: "Strategic guidance to identify and invest in profitable real estate opportunities. Maximize your ROI with our expert market analysis.",
+      link: "/consulting",
+    },
+    {
+      icon: HomeIcon,
+      title: "Property Management",
+      description: "Comprehensive management for residential and commercial properties. We handle tenant relations, maintenance, and maximize your property's value.",
+      link: "/propertymanagement",
+    },
+    {
+      icon: Handshake,
+      title: "Brokerage Services",
+      description: "Full-service real estate brokerage for buying and selling properties. Our experienced agents guide you through every step of the transaction process.",
+      link: "/brokerageservices",
+    },
+    {
+      icon: Banknote,
+      title: "Lending",
+      description: "Access capital for your investment needs. From rental loans to bridge financing, we have loan products designed for real estate investors.",
+      link: "/lending",
     },
   ];
 
@@ -306,16 +312,18 @@ export default function Home() {
           >
             {services.map((service, index) => (
               <motion.div key={index} variants={fadeInUp}>
-                <Card className="h-full bg-white border border-[#D4BD9E]/30 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-2 group relative overflow-visible">
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#A0754D] to-[#8B6340] opacity-0 group-hover:opacity-100 transition-opacity rounded-t-md"></div>
-                  <CardContent className="p-8 text-center">
-                    <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center">
-                      <service.icon className="h-16 w-16 text-[#8B6340] group-hover:scale-110 transition-transform" strokeWidth={1.5} />
-                    </div>
-                    <h3 className="text-lg font-bold text-[#1A1A1A] mb-4">{service.title}</h3>
-                    <p className="text-[#333333] leading-relaxed">{service.description}</p>
-                  </CardContent>
-                </Card>
+                <Link href={service.link}>
+                  <Card className="h-full bg-white border border-[#D4BD9E]/30 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-2 group relative overflow-visible cursor-pointer">
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#A0754D] to-[#8B6340] opacity-0 group-hover:opacity-100 transition-opacity rounded-t-md"></div>
+                    <CardContent className="p-8 text-center">
+                      <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+                        <service.icon className="h-16 w-16 text-[#8B6340] group-hover:scale-110 transition-transform" strokeWidth={1.5} />
+                      </div>
+                      <h3 className="text-lg font-bold text-[#1A1A1A] mb-4">{service.title}</h3>
+                      <p className="text-[#333333] leading-relaxed">{service.description}</p>
+                    </CardContent>
+                  </Card>
+                </Link>
               </motion.div>
             ))}
           </motion.div>
