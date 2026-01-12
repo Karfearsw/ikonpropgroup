@@ -25,7 +25,7 @@ export const api = {
           phone: z.string().nullable(),
           message: z.string(),
           serviceType: z.string(),
-          createdAt: z.date().nullable(),
+          createdAt: z.string().nullable(),
         }),
         400: errorSchemas.validation,
       },
